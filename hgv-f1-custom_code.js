@@ -158,3 +158,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
     console.log("faq");
   });
 });
+
+//adding custom code for bug
+function applyStyles() {
+    const items = document.querySelectorAll('.race-schedule-item.is--odd');
+
+    if (window.matchMedia("(max-width: 767px)").matches) {
+        items.forEach(item => {
+            item.style.justifySelf = 'end';
+        });
+    } else {
+        items.forEach(item => {
+            item.style.justifySelf = ''; // Reset the style when not in the desired screen width
+        });
+    }
+}
+
+// Apply the styles initially
+applyStyles();
+
+// Add event listener to handle screen width changes
+window.addEventListener('resize', applyStyles);
