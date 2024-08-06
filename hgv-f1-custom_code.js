@@ -1,4 +1,3 @@
-//adding test comment
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollTrigger);
   console.log("working");
