@@ -181,23 +181,24 @@ applyStyles();
 window.addEventListener('resize', applyStyles);
 
 
-var buckleUpSec = document.querySelector('.buckle-up-sec');
-    
-    if (buckleUpSec) {
-        // Find all elements with class 'lines-wf' inside 'buckle-up-sec'
-        var linesWfElements = buckleUpSec.querySelectorAll('.words-wf');
-        //console.log(linesWfElements);
+setTimeout(function() {
+        // Find the element with class 'buckle-up-sec'
+        var buckleUpSec = document.querySelector('.buckle-up-sec');
         
-        linesWfElements.forEach(function(linesWfElement) {
-            // Find all 'span' elements inside the current 'lines-wf' element
-            if (linesWfElement.textContent.trim() === 'VEGAS') {
-                    linesWfElement.remove(); // Remove the 'VEGAS' span
+        if (buckleUpSec) {
+            // Find all elements with class 'words-wf' inside 'buckle-up-sec'
+            var wordsWfElements = buckleUpSec.querySelectorAll('.words-wf');
+            console.log(wordsWfElements);
+            wordsWfElements.forEach(function(wordWfElement) {
+                // Remove 'VEGAS' span if found
+                if (wordWfElement.textContent.trim() === 'VEGAS') {
+                    wordWfElement.remove(); // Remove the 'VEGAS' span
                 }
-           if (linesWfElement.textContent.trim() === 'LAS') {
-                console.log('find');
-                // Update the text to 'LAS VEGAS'
-                linesWfElement.textContent = 'LAS VEGAS';
-            }
-        });
-    }
-
+                // Update 'LAS' span to 'LAS VEGAS'
+                if (wordWfElement.textContent.trim() === 'LAS') {
+                    console.log('find');
+                    wordWfElement.textContent = 'LAS VEGAS';
+                }
+            });
+        }
+    }, 300);
